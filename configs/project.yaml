@@ -1,0 +1,69 @@
+# Projeto IDECEP — Configuração principal
+# Fonte de dados: BCB (SGS) + IPEA (OData4)
+# Janela alvo: 1980–2025
+
+project:
+  name: idecep_gdp_quality
+  description: >
+    Projeto de qualidade do PIB com base em dados nacionais:
+    PIB nominal (BCB/IBGE) e variáveis fiscais (% PIB) do IPEA.
+  version: 1.0
+
+target:
+  name: pib_nominal_brl
+  kind: numeric
+  freq: annual
+  notes: >
+    PIB nominal em R$ correntes (BCB série 1207).
+    Cobertura disponível: ~1980–2024.
+
+features:
+  # ======================
+  # PIB nominal
+  # ======================
+  pib_nominal_brl:
+    enabled: true
+    preferred_source: "bcb"
+    kind: "bcb_sgs"
+    serid: 1207
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1207/dados"
+    params: { formato: "csv", dataInicial: "01/01/1980", dataFinal: "31/12/2025" }
+    notes: "PIB nominal em R$ correntes — série nacional (BCB)."
+
+  # ======================
+  # IPEA – variáveis fiscais (% do PIB)
+  # ======================
+  receita_pct_pib:
+    enabled: true
+    preferred_source: "ipea"
+    kind: "ipea_odata4"
+    serid: "WEO_RECGGWEOBRA"
+    url: "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='WEO_RECGGWEOBRA')"
+    params: {}
+    notes: "Receita do governo geral (% do PIB). Disponível ~1996–2024."
+
+  despesa_pct_pib:
+    enabled: true
+    preferred_source: "ipea"
+    kind: "ipea_odata4"
+    serid: "WEO_DESPGGWEOBRA"
+    url: "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='WEO_DESPGGWEOBRA')"
+    params: {}
+    notes: "Despesa do governo geral (% do PIB). Disponível ~1996–2024."
+
+  divida_pct_pib:
+    enabled: true
+    preferred_source: "ipea"
+    kind: "ipea_odata4"
+    serid: "WEO_DBGGWEOBRA"
+    url: "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='WEO_DBGGWEOBRA')"
+    params: {}
+    notes: "Dívida bruta do governo geral (% do PIB). Disponível ~1996–2024."
+
+settings:
+  output_dir: data/build
+  processed_dir: data/processed/nacional
+  limit_test_dir: data/limit_test_nacional
+  build_features: src/build_features.py
+  extract_years: src/extract_years_nacional.py
+  train_script: src/train.py

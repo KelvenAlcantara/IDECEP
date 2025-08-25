@@ -1,0 +1,41 @@
+# ---- Python / Build ----
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+*.nbconvert/
+
+# ---- Data / Outputs (large or regenerated) ----
+data/push_nacional/
+data/processed/
+data/build/
+data/splited/
+outputs/
+files_to_latex/idecep/*.csv
+
+# ---- Models / Artifacts ----
+*.pkl
+*.joblib
+*.h5
+
+# ---- OS / Editors ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---- text ----
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.pdf

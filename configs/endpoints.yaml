@@ -1,0 +1,80 @@
+# Fonte: APIs oficiais (BCB, IBGE/SIDRA, IPEA)
+# Janela alvo: 1980–2025
+
+features:
+
+  # ======================
+  # PIB — BCB
+  # ======================
+
+  pib_nominal_brl:
+    enabled: true
+    preferred_source: "bcb"
+    kind: "bcb_sgs"
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1207/dados"
+    params: { formato: "csv", dataInicial: "01/01/1980", dataFinal: "31/12/2025" }
+    notes: "BCB SGS 1207 – PIB nominal (R$ correntes). Cobertura ~1980–presente."
+
+  # ======================
+  # Fiscais — Governo Geral (% do PIB) — IPEA
+  # ======================
+
+  receita_total_pct_pib:
+    enabled: true
+    preferred_source: "ipea"
+    kind: "ipea"
+    url: "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='WEO_RECGGWEOBRA')"
+    params: { formato: "json" }
+    notes: "IPEA – Receita total (% do PIB), Governo Geral, anual (~1996–presente)."
+
+  despesa_total_pct_pib:
+    enabled: true
+    preferred_source: "ipea"
+    kind: "ipea"
+    url: "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='WEO_DESPGGWEOBRA')"
+    params: { formato: "json" }
+    notes: "IPEA – Despesa total (% do PIB), Governo Geral, anual (~1996–presente)."
+
+  divida_bruta_pct_pib:
+    enabled: true
+    preferred_source: "bcb"
+    kind: "bcb_sgs"
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.4505/dados"
+    params: { formato: "csv", dataInicial: "01/01/2000", dataFinal: "31/12/2025" }
+    notes: "BCB SGS 4505 – Dívida Bruta do Governo Geral (% do PIB). Cobertura ~2006–presente."
+
+  # ======================
+  # Alta frequência — BCB
+  # ======================
+
+  cambio_usd:
+    enabled: true
+    kind: "bcb_sgs"
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.10813/dados"
+    params: { formato: "csv", dataInicial: "01/01/2000", dataFinal: "31/12/2025" }
+    notes: "SGS 10813 – USD/BRL (compra). Script faz janelas ≤10 anos."
+
+  ipca_indice:
+    enabled: true
+    kind: "bcb_sgs"
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados"
+    params: { formato: "csv", dataInicial: "01/01/1980", dataFinal: "31/12/2025" }
+    notes: "SGS 433 – Variação mensal do IPCA (%)."
+
+  selic_meta:
+    enabled: true
+    kind: "bcb_sgs"
+    url: "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados"
+    params: { formato: "csv", dataInicial: "01/01/1980", dataFinal: "31/12/2025" }
+    notes: "SGS 432 – Selic meta (% a.a.). Script usa janelas <10 anos."
+
+  # ======================
+  # IBGE / SIDRA — mensais
+  # ======================
+
+  producao_industrial:
+    enabled: true
+    kind: "sidra_v3"
+    url: "https://servicodados.ibge.gov.br/api/v3/agregados/3653/periodos/all/variaveis/3135"
+    params: { localidades: "N1[all]" }
+    notes: "PIM-PF (índice geral, Brasil). Disponível ~2002 em diante."
