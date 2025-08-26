@@ -33,10 +33,10 @@ Formas do índice:
 O cálculo do **IDECEP** é fundamentado em modelos de séries temporais, integrando PIB real per capita e Receita pública per capita.  
 
 ### Variáveis principais
-- \( P_t \): PIB real per capita em logaritmo natural (proxy da capacidade produtiva da população)  
-- \( E_t \): Receita pública per capita em logaritmo natural (proxy da capacidade de execução do Estado)  
-- \( \Delta \): operador de diferença (variação)  
-- \( \lambda \): coeficiente de correção de erro (ECT)  
+- $P_t$: PIB real per capita em logaritmo natural (proxy da capacidade produtiva da população)  
+- $E_t$: Receita pública per capita em logaritmo natural (proxy da capacidade de execução do Estado)  
+- $\Delta$: operador de diferença (variação)  
+- $\lambda$: coeficiente de correção de erro (ECT)  
 
 ### Forma Simples
 
