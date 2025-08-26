@@ -39,21 +39,26 @@ O cálculo do **IDECEP** é fundamentado em modelos de séries temporais, integr
 - \( \lambda \): coeficiente de correção de erro (ECT)  
 
 ### Forma Simples
+
 A forma simples do índice captura a razão entre variações da execução estatal e variações da produção populacional:
-\[
-IDECEP_t = \frac{\Delta E_t}{\Delta P_t} \times 100
-\]
+
+$$
+\mathrm{IDECEP}_t = \frac{\Delta E_t}{\Delta P_t} \times 100
+$$
 
 ### Forma de Regressão (ECM)
-A versão mais robusta utiliza um modelo de correção de erro:
-\[
-\Delta P_t = \alpha + \beta \Delta E_t + \lambda \big(P_{t-1} - \gamma E_{t-1}\big) + \varepsilon_t
-\]
 
-Onde:
-- \( \beta \): impacto de curto prazo da receita sobre o PIB  
-- \( \gamma \): relação de longo prazo (cointegração)  
-- \( \lambda \): velocidade de ajuste para o equilíbrio de longo prazo  
+A versão mais robusta utiliza um modelo de correção de erro:
+
+$$
+\Delta P_t = \alpha + \beta\,\Delta E_t + \lambda\big(P_{t-1} - \gamma E_{t-1}\big) + \varepsilon_t
+$$
+
+**Onde:**
+- $\beta$: impacto de curto prazo da receita sobre o PIB  
+- $\gamma$: relação de longo prazo (cointegração)  
+- $\lambda$: velocidade de ajuste para o equilíbrio de longo prazo
+
 
 ### Critérios de Diagnóstico
 O modelo é validado através de:
