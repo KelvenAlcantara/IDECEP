@@ -33,27 +33,29 @@ Formas do índice:
 O cálculo do **IDECEP** é fundamentado em modelos de séries temporais, integrando PIB real per capita e Receita pública per capita.  
 
 ### Variáveis principais
-- \( P_t \): PIB real per capita em logaritmo natural (proxy da capacidade produtiva da população)  
-- \( E_t \): Receita pública per capita em logaritmo natural (proxy da capacidade de execução do Estado)  
-- \( \Delta \): operador de diferença (variação)  
-- \( \lambda \): coeficiente de correção de erro (ECT)  
+- $P_t$: PIB real per capita em logaritmo natural (proxy da capacidade produtiva da população)  
+- $E_t$: Receita pública per capita em logaritmo natural (proxy da capacidade de execução do Estado)  
+- $\Delta$: operador de diferença (variação)  
+- $\lambda$: coeficiente de correção de erro (ECT)  
 
 ### Forma Simples
 A forma simples do índice captura a razão entre variações da execução estatal e variações da produção populacional:
-\[
+
+$$
 IDECEP_t = \frac{\Delta E_t}{\Delta P_t} \times 100
-\]
+$$
 
 ### Forma de Regressão (ECM)
 A versão mais robusta utiliza um modelo de correção de erro:
-\[
+
+$$
 \Delta P_t = \alpha + \beta \Delta E_t + \lambda \big(P_{t-1} - \gamma E_{t-1}\big) + \varepsilon_t
-\]
+$$
 
 Onde:
-- \( \beta \): impacto de curto prazo da receita sobre o PIB  
-- \( \gamma \): relação de longo prazo (cointegração)  
-- \( \lambda \): velocidade de ajuste para o equilíbrio de longo prazo  
+- $\beta$: impacto de curto prazo da receita sobre o PIB  
+- $\gamma$: relação de longo prazo (cointegração)  
+- $\lambda$: velocidade de ajuste para o equilíbrio de longo prazo  
 
 ### Critérios de Diagnóstico
 O modelo é validado através de:
